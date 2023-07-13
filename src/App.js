@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Sidebar from "./Sidebar";
+import Mint from "./Mint";
+import FilterUser from "./FilterUser";
+import Send from "./Send";
+import Manual from "./Manual";
+import Tournament from "./Tournament";
+import Dashboard from "./Dashboard";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <BrowserRouter>
+      <div style={{ display: "flex" }}>
+        <Sidebar />
+        <div
+          style={{
+            flex: 1,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/Mint" element={<Mint />} />
+            <Route path="/Filter" element={<FilterUser />} />
+            <Route path="/Send" element={<Send />} />
+            <Route path="/Manual" element={<Manual />} />
+            <Route path="/Tournament" element={<Tournament />} />
+          </Routes>
+        </div>
+      </div>
+    </BrowserRouter>
   );
 }
 

@@ -1,13 +1,140 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
+* {
+  font-family: "Space Mono", monospace;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  background-color: #1a1a1a;
+  color: #20c20e;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  width: 510px;
+  margin: 0 auto;
+  font-family: "Space Mono", monospace;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+label {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  background-color: #1a1a1a;
+}
+
+/* to remove those up-down number arrows in number input field */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+select,
+input,
+input[type="number"],
+input[type="text"] {
+  padding: 8px;
+  font-size: 14px;
+  width: 300px;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  --slant: 0.7em;
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--slant)) 0,
+    100% var(--slant),
+    100% 100%,
+    var(--slant) 100%,
+    0 calc(100% - var(--slant))
+  );
+  box-sizing: border-box;
+}
+
+button {
+  --border: 5px;
+  --slant: 0.7em;
+  --color: #20c20e;
+
+  font-size: 30px;
+  padding: 0.3em 1em;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  color: var(--color);
+  background: linear-gradient(to bottom left, var(--color) 50%, #0000 50.1%) top
+      right,
+    linear-gradient(to top right, var(--color) 50%, #0000 50.1%) bottom left;
+  background-size: calc(var(--slant) + 1.1 * var(--border))
+    calc(var(--slant) + 1.1 * var(--border));
+  background-repeat: no-repeat;
+  box-shadow: 0 0 0 200px inset var(--s, #0000),
+    0 0 0 var(--border) inset var(--color);
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--slant)) 0,
+    100% var(--slant),
+    100% 100%,
+    var(--slant) 100%,
+    0 calc(100% - var(--slant))
+  );
+  transition: color var(--t, 0.3s), background-size 0.3s;
+}
+
+button:focus-visible {
+  outline-offset: calc(-1 * var(--border));
+  outline: var(--border) solid #000c;
+  clip-path: none;
+  background-size: 0 0;
+}
+
+button:hover,
+button:active {
+  background-size: 100% 100%;
+  color: #fff;
+  --t: 0.2s 0.1s;
+}
+
+button:active {
+  --s: #0005;
+  transition: none;
+}
+
+.mint,
+.centre-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+/* Rest of the CSS remains the same */
+
+.form-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+label {
+  width: 200px;
+  margin-right: 10px;
+}
+
+@media (max-width: 791.98px) {
+  .form-row {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .form {
+    width: 390px;
+  }
 }
